@@ -1,6 +1,4 @@
-/**
- * Created by chaika on 09.02.16.
- */
+
 var API_URL = "http://localhost:5050";
 
 function backendGet(url, callback) {
@@ -31,10 +29,7 @@ function backendPost(url, data, callback) {
     })
 }
 
-exports.getPizzaList = function(callback) {
-    backendGet("/api/get-pizza-list/", callback);
+exports.getLevelList = function(callback) {
+    backendGet("/api/get-level-list/", callback);
 };
 
-exports.createOrder = function(order_info, callback) {
-    backendPost("/api/create-order/", order_info, callback);
-};

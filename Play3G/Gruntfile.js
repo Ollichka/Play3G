@@ -1,6 +1,4 @@
-/**
- * Created by Andriy on 10.03.2015.
- */
+
 module.exports = function(grunt) {
     //Налаштування збірки Grunt
     var config = {
@@ -20,8 +18,8 @@ module.exports = function(grunt) {
                 }
             },
 
-            //Збірка з назвою піца
-            pizza: {
+            //Збірка з назвою play
+            play: {
                 src:        'Frontend/src/main.js',
                 dest:       'Frontend/www/assets/js/main.js'
             }
@@ -38,7 +36,7 @@ module.exports = function(grunt) {
             //На зміни в яких файлах реагувати
             files: ['Frontend/src/**/*.js', 'Frontend/**/*.ejs'],
             //Які завдання виконувати під час зміни в файлах
-            tasks: ['browserify:pizza']
+            tasks: ['browserify:play']
         }
     };
 
@@ -55,7 +53,7 @@ module.exports = function(grunt) {
     //Список завданнь по замовчування
     grunt.registerTask('default',
         [
-            'browserify:pizza',
+            'browserify:play',
             //Інші завдання які необхідно виконати
         ]
     );
