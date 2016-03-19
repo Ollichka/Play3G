@@ -49,7 +49,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-
     //Список завданнь по замовчування
     grunt.registerTask('default',
         [
