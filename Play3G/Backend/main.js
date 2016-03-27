@@ -15,6 +15,10 @@ function configureEndpoints(app) {
     //Сторінки
     //Page with first level of game(temprorary)
     app.get('/', pages.mainPage);
+    app.get('/levelOne.html', pages.levelOne);
+    app.get('/profile.html', pages.profile);
+    app.get('/Vocabulary.html', pages.Vocabulary);
+    app.get('/about.html', pages.about);
 
 
 
