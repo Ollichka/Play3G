@@ -10,7 +10,7 @@ function configureEndpoints(app) {
 
     //Налаштування URL за якими буде відповідати сервер
     //Отримання списку піц
-    app.get('/api/get-level-list/', api.getLevelList);
+    app.get('/api/get-product-list/', api.getProductList);
 
     //Сторінки
     //Page with first level of game(temprorary)
