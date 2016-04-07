@@ -12,7 +12,7 @@ function showProductOnPageList(list) {
         var html_code = Templates.Product_OneItem({prod: prod});
 
         var $node = $(html_code);
-
+       // dragProduct(prod);
         $kitchen.append($node);
     }
 
@@ -31,6 +31,10 @@ function showEquipmentOnPageList(list) {
     }
 
     list.forEach(showOneEquip);
+}
+
+function dragProduct(prod){
+    $('#draggable').draggable();
 }
 
 function initialiseMenu() {
