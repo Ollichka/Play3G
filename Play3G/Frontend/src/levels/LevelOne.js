@@ -12,7 +12,12 @@ function showProductOnPageList(list) {
         var html_code = Templates.Product_OneItem({prod: prod});
 
         var $node = $(html_code);
-       // dragProduct(prod);
+//        console.log($node.find("#draggable"));
+//        $(function() {
+//
+//            $('#draggable').draggable();
+//
+//        });
         $kitchen.append($node);
     }
 

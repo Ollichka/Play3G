@@ -1,57 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>Play3G</title>
+<head>
+    <meta charset="utf-8">
+    <title>jQuery UI</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/sunny/jquery-ui.css">
+    <style type="text/css">
+        #draggable {font-size: x-large; border: thin solid black;
+            width: 5em; text-align: center; padding:10px}
+    </style>
+    <script type="text/javascript">
+        $(function() {
 
-    <!-- Bootsrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+            $('#draggable').draggable();
 
-    <!-- LESS основний файл -->
-    <link rel="stylesheet/less" type="text/css" href="assets/less/main.less" />
-    <!-- LESS JavaScript компілятор -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
-
-
+        });
+    </script>
 </head>
 <body>
-<footer class="menu">
-        <ul class="list-inline">
-            <li class="footer-up"><a href="#">Home</a></li>
-            <li class="footer-up"><a href="#">Profile</a></li>
-            <li class="footer-up"><a href="#">About</a></li>
-        </ul>
-</footer>
-<img class="logo" src= "assets/images/play.png">
-<div class="information">
-<div class="row">
-    <div class="col-sm-3 info information">
-        <h3>Enjoy learning English</h3>
-        <img class="imagine" src= "assets/images/playm.png">
-        <p align="center">Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-    </div>
-    <div class="col-sm-3 info information">
-        <h3>Remember new words</h3>
-        <img class="imagine" src= "assets/images/vocabluary.png">
-        <p align="center">Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-    </div>
-    <div class="col-sm-3 info information">
-        <h3>See your progress</h3>
-        <img class="imagine" src= "assets/images/progress.png">
-        <p align="center">Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-    </div>
+<div id="draggable" class="ui-widget ui-corner-all ui-state-error">
+    Перетащи меня
 </div>
-</div>
-<div class="lets">
-<button type="button" class="btn btn-primary lets">Lets get started!</button>
-</div>
-<!-- jQuery JavaScript -->
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"> </script>
-
-<!--Bootsrap JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-<!--Own JavaScript -->
-<script type="text/javascript"  src="assets/js/main.js"> </script>
 </body>
 </html>

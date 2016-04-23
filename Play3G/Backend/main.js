@@ -8,8 +8,6 @@ function configureEndpoints(app) {
     var pages = require('./pages');
     var api = require('./api');
 
-    //Налаштування URL за якими буде відповідати сервер
-    //Отримання списку піц
     app.get('/api/get-product-list/', api.getProductList);
 
     //Сторінки
