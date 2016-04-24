@@ -119,8 +119,8 @@ module.exports = product_info;
 var ejs = require('ejs');
 
 
-exports.Product_OneItem = ejs.compile("\r\n   <span id=\"draggable\" class=\" ui-widget ui-corner-all ui-state-error\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"<%= prod.title %>\"><img id=\"<%= prod.title %>\" src=\"<%= prod.iconFull %>\"></span>\r\n");
-exports.Equipment_OneItem = ejs.compile("\r\n<span data-toggle=\"tooltip\" data-placement=\"top\" title=\"<%= eq.title %>\"> <img id=\"<%= eq.title %>\" src=\"<%= eq.icon%>\"></span>\r\n");
+exports.Product_OneItem = ejs.compile("\n   <span data-toggle=\"tooltip\" data-placement=\"top\" title=\"<%= prod.title %>\"><img id=\"<%= prod.title %>\" src=\"<%= prod.iconFull %>\"></span>\n");
+exports.Equipment_OneItem = ejs.compile("\n<span data-toggle=\"tooltip\" data-placement=\"top\" title=\"<%= eq.title %>\"> <img id=\"<%= eq.title %>\" src=\"<%= eq.icon%>\"></span>\n");
 },{"ejs":7}],5:[function(require,module,exports){
 var Product_List = require('../Product_List');
 var Equipment_List = require('../Equipment_List');
@@ -162,9 +162,9 @@ function showEquipmentOnPageList(list) {
     list.forEach(showOneEquip);
 }
 
-function dragProduct(prod){
-    $('#draggable').draggable();
-}
+//function dragProduct(prod){
+//    $('#draggable').draggable();
+//}
 
 function initialiseMenu() {
     showProductOnPageList(Product_List);

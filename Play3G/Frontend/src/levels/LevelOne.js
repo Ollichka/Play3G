@@ -38,9 +38,9 @@ function showEquipmentOnPageList(list) {
     list.forEach(showOneEquip);
 }
 
-function dragProduct(prod){
-    $('#draggable').draggable();
-}
+//function dragProduct(prod){
+//    $('#draggable').draggable();
+//}
 
 function initialiseMenu() {
     showProductOnPageList(Product_List);
