@@ -10,8 +10,8 @@ exports.levelOne = function(req, res) {
         pageTitle: 'First Level'
     });
 };
-exports.Vocabulary = function(req, res) {
-    res.render('Vocabulary', {
+exports.vocabulary = function(req, res) {
+    res.render('vocabulary', {
         pageTitle: 'Your vocabulary'
     });
 };

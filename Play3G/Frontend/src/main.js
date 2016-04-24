@@ -10,7 +10,7 @@ $(function(){
         LevelOne.initialiseMenu();
     })
 
-    $(".lets").click(function(){
+    $(".tester").click(function(){
         window.location = "/levelOne.html";
     })
 

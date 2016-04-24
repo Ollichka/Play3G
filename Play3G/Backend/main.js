@@ -15,7 +15,7 @@ function configureEndpoints(app) {
     app.get('/', pages.mainPage);
     app.get('/levelOne.html', pages.levelOne);
     app.get('/profile.html', pages.profile);
-    app.get('/Vocabulary.html', pages.Vocabulary);
+    app.get('/vocabulary.html', pages.vocabulary);
     app.get('/about.html', pages.about);
 
 
