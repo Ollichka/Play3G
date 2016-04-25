@@ -6,7 +6,7 @@
 var equipment_list = [
     {
         id:'Desk',
-        icon:'assets/images/Manaita.png',
+        icon:'assets/images/desk.png',
         title: "Desk"
 
     },
@@ -26,12 +26,6 @@ var equipment_list = [
         id:'Plate',
         icon:'assets/images/plate.png',
         title: "Plate"
-
-    },
-    {
-        id:'sPanel',
-        icon:'assets/images/secret-panel.png',
-        title: "Secret"
 
     }
 ];
