@@ -33,8 +33,35 @@ function showEquipmentOnPageList(list) {
 }
 
 function dragProduct(){
+    $('#Desk').droppable({
+        scope:"desk",
+        over: function(event, ui) {
+            $(ui.draggable).draggable("destroy");
+
+        }
+    });
+    $('#Tomato').droppable({
+        scope:"product",
+        over: function(event, ui) {
+            $(this).attr("src","assets/images/40186586.png");
+        }
+    });
+    $('#Bread').droppable({
+        scope:"product",
+        over: function(event, ui) {
+            $(this).attr("src",'http://parentingwithunderstanding.files.wordpress.com/2011/11/slice-of-bread.png');
+        }
+    });
+    $('#Cucumber').droppable({
+        scope:"product",
+        over: function(event, ui) {
+            $(this).attr("src","assets/images/cucumber-spas-in-panama-city-panama.png");
+        }
+    });
+
     $('#Tomato').draggable({
         containment: $kitchen,
+        revert:true,
         scope: "desk"
     });
     $('#Mayonnaise').draggable({
@@ -43,21 +70,17 @@ function dragProduct(){
     });
     $('#Cucumber').draggable({
         containment: $kitchen,
+        revert:true,
         scope: "desk"
     });
     $('#Knife').draggable({
         containment: $kitchen,
-        stop: function() {
-            $('#Tomato').attr("src","assets/images/40186586.png");
-        },
-        scope: "desk"
-    });
-    $('#Plate').draggable({
-        containment: $kitchen,
-        scope: "desk"
+        revert:true,
+        scope: "product"
     });
     $('#Bread').draggable({
         containment: $kitchen,
+        revert:true,
         scope: "desk"
     });
 }
