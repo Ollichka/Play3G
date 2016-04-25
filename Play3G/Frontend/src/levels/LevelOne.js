@@ -10,17 +10,8 @@ function showProductOnPageList(list) {
     function showOneProd(prod) {
         console.log("products");
         var html_code = Templates.Product_OneItem({prod: prod});
-        $('#Bread').draggable({
-
-        });
         var $node = $(html_code);
 
-//        console.log($node.find("#draggable"));
-//        $(function() {
-//
-//            $('#draggable').draggable();
-//
-//        });
         $kitchen.append($node);
     }
 
@@ -56,6 +47,9 @@ function dragProduct(){
     });
     $('#Knife').draggable({
         containment: $kitchen,
+        stop: function() {
+            $('#Tomato').attr("src","assets/images/40186586.png");
+        },
         scope: "desk"
     });
     $('#Plate').draggable({
