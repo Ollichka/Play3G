@@ -25,6 +25,13 @@ var product_list = [
 
     },
     {
+        id:'Cheese',
+        iconFull:'assets/images/full-cheese.png',
+        iconSmall:'assets/images/cheese-c.png',
+        title: "Cheese"
+
+    },
+    {
         id:'Bread',
         iconFull:'http://1.bp.blogspot.com/-XPoRVLvx4D8/Tq71GrCyEwI/AAAAAAAABNo/YlnF5fFvtbI/s320/bread.png',
         iconSmall:'http://parentingwithunderstanding.files.wordpress.com/2011/11/slice-of-bread.png',
