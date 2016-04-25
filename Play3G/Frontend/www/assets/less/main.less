@@ -79,6 +79,7 @@ body{
   width: 825px;
   background-repeat: no-repeat;
   border: 10px double blue;
+  border-right: 10px double #676767;
   float: none;
 }
 
@@ -86,7 +87,7 @@ body{
   position: absolute;
   height: 40px;
   z-index:5;
-  right: 130px; bottom:150px;
+  right: 250px; bottom:280px;
 }
 #tomato-slice{
   position:absolute;
@@ -97,8 +98,8 @@ body{
 #Cucumber{
   position:absolute;
   height:15px;
-  z-index:3;
-  right: 120px; bottom:180px;
+  z-index:4;
+  right: 250px; bottom:350px;
 }
 #cucumber-slice{
   position: absolute;
@@ -110,8 +111,8 @@ body{
 #Mayonnaise{
   position:absolute;
   height: 50px;
-  z-index:3;
-  right: 130px; bottom:120px;
+  z-index:4;
+  right: 250px; bottom:210px;
 }
 
 #Plate{
@@ -119,7 +120,7 @@ body{
   height: 50px;
   width: 60px;
   z-index: 4;
-  right: 20px; bottom:20px;
+  right: 80px; bottom:180px;
 }
 
 #sandwich{
@@ -140,13 +141,20 @@ body{
   height: 70px;
   position: absolute;
   z-index: 4;
-  right: 210px; bottom:110px;
+  left: 100px; bottom:180px;
+
+}
+#Secret{
+  height: 70px;
+  position: absolute;
+  z-index: 1;
+  right: 10px; bottom:80px;
 }
 #Breadbox{
   height: 100px;
   position: absolute;
   z-index:3;
-  right: 10px; bottom:110px;
+ left: 100px; bottom:180px;
 }
 #bread-slice{
   height: 50px;
@@ -158,7 +166,7 @@ body{
   height: 50px;
   position:absolute;
   z-index:7;
-  right: 110px; bottom:110px;
+  left: 310px; bottom:250px;
 }
 .footer {
   opacity: 0.6;
@@ -251,7 +259,22 @@ body{
   position:absolute;
 }
 .recipe-demolevel{
-  margin-top: 1.3888%;
-  width: 520px;
-  margin-left: 55%;
+  background: url("http://pixelbrush.ru/uploads/posts/2013-01/1359314474_01-5.jpg");
+  background-repeat: no-repeat;
+  margin-top: 2.5%;
+  height: 600px;
+  margin-left:2%;
+  padding-top: 30px;
+  border: 10px double #676767;
+  border-left: none;
+  ul{
+    list-style: none;
+    font-family: Californian FB;
+    padding-top: 40px;
+    padding-left:55px;
+  }
+  li{
+    font-size:20px;
+    padding-top: 10px;
+  }
 }

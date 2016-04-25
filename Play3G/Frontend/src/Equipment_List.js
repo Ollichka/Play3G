@@ -27,6 +27,12 @@ var equipment_list = [
         icon:'assets/images/plate.png',
         title: "Plate"
 
+    },
+    {
+        id:'sPanel',
+        icon:'assets/images/secret-panel.png',
+        title: "Secret"
+
     }
 ];
 
