@@ -41,14 +41,38 @@ function showEquipmentOnPageList(list) {
     list.forEach(showOneEquip);
 }
 
-//function dragProduct(prod){
-//    $('#draggable').draggable();
-//}
+function dragProduct(){
+    $('#Tomato').draggable({
+        containment: $kitchen,
+        scope: "desk"
+    });
+    $('#Mayonnaise').draggable({
+        containment: $kitchen,
+        scope: "desk"
+    });
+    $('#Cucumber').draggable({
+        containment: $kitchen,
+        scope: "desk"
+    });
+    $('#Knife').draggable({
+        containment: $kitchen,
+        scope: "desk"
+    });
+    $('#Plate').draggable({
+        containment: $kitchen,
+        scope: "desk"
+    });
+    $('#Bread').draggable({
+        containment: $kitchen,
+        scope: "desk"
+    });
+}
 
 
 function initialiseMenu() {
     showProductOnPageList(Product_List);
     showEquipmentOnPageList(Equipment_List);
+    dragProduct();
 }
 
 exports.initialiseMenu = initialiseMenu;

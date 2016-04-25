@@ -119,7 +119,7 @@ module.exports = product_info;
 var ejs = require('ejs');
 
 
-exports.Product_OneItem = ejs.compile("\n<span id=\"<%= prod.title %>\" class=\"draggable\"> <span data-toggle=\"tooltip\" data-placement=\"top\" title=\"<%= prod.title %>\"><img id=\"<%= prod.title %>\" src=\"<%= prod.iconFull %>\"></span></span>\n");
+exports.Product_OneItem = ejs.compile("\n<span data-toggle=\"tooltip\" data-placement=\"top\" title=\"<%= prod.title %>\"><img id=\"<%= prod.title %>\" src=\"<%= prod.iconFull %>\"></span>\n");
 exports.Equipment_OneItem = ejs.compile("\n<span data-toggle=\"tooltip\" data-placement=\"top\" title=\"<%= eq.title %>\"> <img id=\"<%= eq.title %>\" src=\"<%= eq.icon%>\"></span>\n");
 },{"ejs":7}],5:[function(require,module,exports){
 var Product_List = require('../Product_List');
@@ -165,14 +165,38 @@ function showEquipmentOnPageList(list) {
     list.forEach(showOneEquip);
 }
 
-//function dragProduct(prod){
-//    $('#draggable').draggable();
-//}
+function dragProduct(){
+    $('#Tomato').draggable({
+        containment: $kitchen,
+        scope: "desk"
+    });
+    $('#Mayonnaise').draggable({
+        containment: $kitchen,
+        scope: "desk"
+    });
+    $('#Cucumber').draggable({
+        containment: $kitchen,
+        scope: "desk"
+    });
+    $('#Knife').draggable({
+        containment: $kitchen,
+        scope: "desk"
+    });
+    $('#Plate').draggable({
+        containment: $kitchen,
+        scope: "desk"
+    });
+    $('#Bread').draggable({
+        containment: $kitchen,
+        scope: "desk"
+    });
+}
 
 
 function initialiseMenu() {
     showProductOnPageList(Product_List);
     showEquipmentOnPageList(Equipment_List);
+    dragProduct();
 }
 
 exports.initialiseMenu = initialiseMenu;

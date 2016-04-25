@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/sunny/jquery-ui.css">
 
     <script type="text/javascript">
-        $(function() {
+        $(function () {
             $('#Tomato').draggable({
                 scope: "desk"
             });
@@ -32,12 +32,26 @@
             $('#Bread').draggable({
                 scope: "desk"
             });
-            $('#Desk').droppable({
-                activeClass: "kitchen-one",
-                scope:" desk"
+            $('#cat').droppable({
+                drop: function () {
+                    $('#cat').text("Оставлено")
+                },
+                tolerance: "fit"
+            });
+            $('#cat').droppable("option", "tolerance", "touch");
+
+            $('.draggable').draggable();
+
+            $('.droppable').droppable({
+                drop: function(event, ui) {
+                    ui.draggable.text("Оставлено")
+                },
+                activeClass: "active",
+                hoverClass: "hover",
+                tolerance: "fit"
             });
 
-
+            $('#touchDrop').droppable("option", "tolerance", "touch");
         });
     </script>
 </head>
@@ -51,35 +65,22 @@
     </ul>
 </footer>
 
-<div class="kitchen-one col-lg-8">
-    <span id="Tomato" class="draggable"> <span data-toggle="tooltip" data-placement="top" title="Tomato"><img id="Tomato" src="assets/images/tamato_PNG2019.png"></span></span>
-    <span id="Mayonnaise" class="draggable"> <span data-toggle="tooltip" data-placement="top" title="Mayonnaise"><img id="Mayonnaise" src="assets/images/dietetic_mayonnaise.png"></span></span>
-    <span id="Cucumber" class="draggable"> <span data-toggle="tooltip" data-placement="top" title="Cucumber"><img id="Cucumber" src="assets/images/ogurets-rastr.png"></span></span>
-    <span id="Bread" class="draggable"> <span data-toggle="tooltip" data-placement="top" title="Bread"><img id="Bread" src="http://1.bp.blogspot.com/-XPoRVLvx4D8/Tq71GrCyEwI/AAAAAAAABNo/YlnF5fFvtbI/s320/bread.png"></span></span>
-    <span data-toggle="tooltip" data-placement="top" title="Desk"> <img id="Desk" src="assets/images/Manaita.png"></span>
-    <span data-toggle="tooltip" data-placement="top" title="Breadbox"> <img id="Breadbox" src="assets/images/derevyannaya-hlebnica.PNG"></span>
-    <span data-toggle="tooltip" data-placement="top" title="Knife"> <img id="Knife" src="http://pngimg.com/upload/knife_PNG1512.png"></span>
-    <span data-toggle="tooltip" data-placement="top" title="Plate"> <img id="Plate" src="assets/images/plate.png"></span>
+<span data-toggle="tooltip" data-placement="top" title="Knife"> <img id="Knife"
+                                                                     src="http://pngimg.com/upload/knife_PNG1512.png"></span>
+<!--<span id = "droppable" data-toggle="tooltip" data-placement="top" title="Desk"> <img id="Desk" src="assets/images/Manaita.png"></span>-->
+<div id="cat">
+    Оставь здесь
 </div>
-<!--<img id="tomato-full" src="assets/images/tamato_PNG2019.png">-->
-<!--<img id="mayo" src="assets/images/dietetic_mayonnaise.png">-->
-<!--<img id="cucumber-full" src="assets/images/ogurets-rastr.png">-->
-<!--<img id="tomato-slice" src="assets/images/40186586.png">-->
-<!--<img id="cucumber-slice" src="assets/images/cucumber-spas-in-panama-city-panama.png">-->
-<!--<img id="plate" src="assets/images/plate.png">-->
-<!--<img id="bread" src="http://1.bp.blogspot.com/-XPoRVLvx4D8/Tq71GrCyEwI/AAAAAAAABNo/YlnF5fFvtbI/s320/bread.png">-->
-<!--<img id="breadbox" src="assets/images/derevyannaya-hlebnica.PNG">-->
-<!--<img id="bread-slice" src="http://parentingwithunderstanding.files.wordpress.com/2011/11/slice-of-bread.png">-->
-<!--<img id="knife" src="http://pngimg.com/upload/knife_PNG1512.png">-->
-<!--<div id="Desk" class="droppable"><img id="desk" src="assets/images/Manaita.png"></div>-->
-<!--<div id="orchid" class="draggable ">-->
-<!--<img id="mayo" src="assets/images/dietetic_mayonnaise.png"></div>-->
-<!--&lt;!&ndash;// <div id="cuc" class="draggable "> <img id="cucumber-full" src="assets/images/ogurets-rastr.png"></div>&ndash;&gt;-->
-
-
-<!--<div id ="sand" data-toggle="tooltip" data-placement="top" title="jn">-->
-<!--<img id="sandwich" src="assets/images/Sandwich_PNG_Clipart_Vector_Image.png">-->
-<!--</div>-->
+<div id="dropContainer">
+    <div id="fitDrop" class="droppable">
+        <span>Fit</span>
+    </div>
+    <div id="touchDrop" class="droppable">
+        <span>Touch</span>
+    </div>
+</div>
+<div class="draggable ui-widget ui-corner-all ui-state-error">
+    <span>Перетащи меня</span>
 </div>
 
 
@@ -88,7 +89,7 @@
     <ul>
         <li>
             <p class="info">Home</p>
-            <a class="logo"href="\">Play3G <i>&copy; 2016</i></a>
+            <a class="logo" href="\">Play3G <i>&copy; 2016</i></a>
         </li>
         <li>
             <p class="info">Services</p>
@@ -111,3 +112,53 @@
 </footer>
 </body>
 </html>
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>jQuery UI</title>-->
+<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
+<!--<script src="//ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/jquery-ui.min.js"></script>-->
+<!--<link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/sunny/jquery-ui.css">-->
+<!--<style type="text/css">-->
+<!--.draggable, .droppable {font-size: large; border: thin solid black; padding: 4px;-->
+<!--width: 100px; text-align: center; background-color: lightgray;}-->
+<!--.droppable {margin-bottom: 10px; margin-right: 5px; height: 60px; width: 120px}-->
+<!--#dropContainer {position: absolute; right: 5px;}-->
+<!--div span {position: relative; top: 25%}-->
+<!--.droppable.active {border: thick solid green}-->
+<!--.droppable.hover {background-color: lightgreen}-->
+<!--</style>-->
+<!--<script type="text/javascript">-->
+<!--$(function() {-->
+
+<!--$('.draggable').draggable();-->
+
+<!--$('.droppable').droppable({-->
+<!--drop: function(event, ui) {-->
+<!--ui.draggable.text("Оставлено")-->
+<!--},-->
+<!--activeClass: "active",-->
+<!--hoverClass: "hover",-->
+<!--tolerance: "fit"-->
+<!--});-->
+
+<!--$('#touchDrop').droppable("option", "tolerance", "touch");-->
+<!--});-->
+<!--</script>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div id="dropContainer">-->
+<!--<div id="fitDrop" class="droppable">-->
+<!--<span>Fit</span>-->
+<!--</div>-->
+<!--<div id="touchDrop" class="droppable">-->
+<!--<span>Touch</span>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="draggable ui-widget ui-corner-all ui-state-error">-->
+<!--<span>Перетащи меня</span>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
