@@ -10,8 +10,11 @@ function showProductOnPageList(list) {
     function showOneProd(prod) {
         console.log("products");
         var html_code = Templates.Product_OneItem({prod: prod});
+        $('#Bread').draggable({
 
+        });
         var $node = $(html_code);
+
 //        console.log($node.find("#draggable"));
 //        $(function() {
 //
@@ -41,6 +44,7 @@ function showEquipmentOnPageList(list) {
 //function dragProduct(prod){
 //    $('#draggable').draggable();
 //}
+
 
 function initialiseMenu() {
     showProductOnPageList(Product_List);

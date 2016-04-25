@@ -1,6 +1,66 @@
-<% include common/header.ejs %>
-<div class="model-one">
-<div class="kitchen-one col-lg-8">
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Play 3G</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/jquery-ui.min.js"></script>
+    <link rel="stylesheet/less" type="text/css" href="assets/less/main.less">
+    <!--Own JavaScript -->
+    <!--<script type="text/javascript"  src="assets/js/main.js"> </script>-->
+    <!-- LESS JavaScript компілятор -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
+    <link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/sunny/jquery-ui.css">
+
+   <script type="text/javascript">
+        $(function() {
+            $('#Tomato').draggable({
+                scope: "desk"
+            });
+            $('#Mayonnaise').draggable({
+                scope: "desk"
+            });
+            $('#Cucumber').draggable({
+                scope: "desk"
+            });
+            $('#Knife').draggable({
+                scope: "desk"
+            });
+            $('#Plate').draggable({
+                scope: "desk"
+            });
+            $('#Bread').draggable({
+                scope: "desk"
+            });
+            $('#Desk').droppable({
+                activeClass: "kitchen-one",
+                scope:" desk"
+            });
+
+
+        });
+    </script>
+</head>
+<body>
+<footer class="menu">
+    <ul class="list-inline">
+        <li class="footer-up"><a class="footer-up" href="\">Home</a></li>
+        <li class="footer-up"><a class="footer-up" href="profile.html">Profile</a></li>
+        <li class="footer-up"><a href="about.html">About</a></li>
+        <li class="footer-up"><a href="vocabulary.html">Vocabulary</a></li>
+    </ul>
+</footer>
+
+    <div class="kitchen-one col-lg-8">
+    <span id="Tomato" class="draggable"> <span data-toggle="tooltip" data-placement="top" title="Tomato"><img id="Tomato" src="assets/images/tamato_PNG2019.png"></span></span>
+    <span id="Mayonnaise" class="draggable"> <span data-toggle="tooltip" data-placement="top" title="Mayonnaise"><img id="Mayonnaise" src="assets/images/dietetic_mayonnaise.png"></span></span>
+    <span id="Cucumber" class="draggable"> <span data-toggle="tooltip" data-placement="top" title="Cucumber"><img id="Cucumber" src="assets/images/ogurets-rastr.png"></span></span>
+    <span id="Bread" class="draggable"> <span data-toggle="tooltip" data-placement="top" title="Bread"><img id="Bread" src="http://1.bp.blogspot.com/-XPoRVLvx4D8/Tq71GrCyEwI/AAAAAAAABNo/YlnF5fFvtbI/s320/bread.png"></span></span>
+    <span data-toggle="tooltip" data-placement="top" title="Desk"> <img id="Desk" src="assets/images/Manaita.png"></span>
+    <span data-toggle="tooltip" data-placement="top" title="Breadbox"> <img id="Breadbox" src="assets/images/derevyannaya-hlebnica.PNG"></span>
+    <span data-toggle="tooltip" data-placement="top" title="Knife"> <img id="Knife" src="http://pngimg.com/upload/knife_PNG1512.png"></span>
+    <span data-toggle="tooltip" data-placement="top" title="Plate"> <img id="Plate" src="assets/images/plate.png"></span>
+</div>
     <!--<img id="tomato-full" src="assets/images/tamato_PNG2019.png">-->
     <!--<img id="mayo" src="assets/images/dietetic_mayonnaise.png">-->
     <!--<img id="cucumber-full" src="assets/images/ogurets-rastr.png">-->
@@ -11,41 +71,43 @@
     <!--<img id="breadbox" src="assets/images/derevyannaya-hlebnica.PNG">-->
     <!--<img id="bread-slice" src="http://parentingwithunderstanding.files.wordpress.com/2011/11/slice-of-bread.png">-->
     <!--<img id="knife" src="http://pngimg.com/upload/knife_PNG1512.png">-->
-    <!--<img id="desk" src="assets/images/Manaita.png">-->
-    <div data-toggle="tooltip" data-placement="top" title="jn">
-        <img id="sandwich" src="assets/images/Sandwich_PNG_Clipart_Vector_Image.png">
-    </div>
-</div>
-    </div>
-<div class="list-group recipe-demolevel col-lg-4">
-    <a href="#" class="list-group-item">
-        <p class="list-group-item-text" id="demo-step1">1.First of all, take a loaf of bread from the bread-plate.</p>
-    </a>
-    <a href="#" class="list-group-item">
-        <p class="list-group-item-text" id="demo-step2">2.Cheese, sausage, tomato and mayonnaise from the fridge.</p>
-    </a>
-    <a href="#" class="list-group-item">
-        <p class="list-group-item-text" id="demo-step3">3.Then, make two slices of bread using a knife and a cutting board. </p>
-    </a>
-    <a href="#" class="list-group-item">
-        <p class="list-group-item-text" id="demo-step4">4.Grease it with mayonnaise. </p>
-    </a>
-    <a href="#" class="list-group-item">
-        <p class="list-group-item-text" id="demo-step5">5.After that, slice sausage and put it on a piece of bread. </p>
-    </a>
-    <a href="#" class="list-group-item">
-        <p class="list-group-item-text" id="demo-step6">6.Continue with tomato, cucumber and cheese. </p>
-    </a>
-    <a href="#" class="list-group-item">
-        <p class="list-group-item-text" id="demo-step7">7.Cover it with the second slice of bread.</p>
-    </a>
-</div>
-<!--Bootsrap JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!--<div id="Desk" class="droppable"><img id="desk" src="assets/images/Manaita.png"></div>-->
+        <!--<div id="orchid" class="draggable ">-->
+            <!--<img id="mayo" src="assets/images/dietetic_mayonnaise.png"></div>-->
+       <!--&lt;!&ndash;// <div id="cuc" class="draggable "> <img id="cucumber-full" src="assets/images/ogurets-rastr.png"></div>&ndash;&gt;-->
 
-<!--Own JavaScript -->
-<script type="text/javascript"  src="assets/js/main.js"> </script>
+
+    <!--<div id ="sand" data-toggle="tooltip" data-placement="top" title="jn">-->
+        <!--<img id="sandwich" src="assets/images/Sandwich_PNG_Clipart_Vector_Image.png">-->
+    <!--</div>-->
+</div>
+
+
 <!--<p>Проект Play3G створений в межах курсу JavaScript в Києво-Могилянській Академії.</p>-->
+<footer class="footer">
+    <ul>
+        <li>
+            <p class="info">Home</p>
+            <a class="logo"href="\">Play3G <i>&copy; 2016</i></a>
+        </li>
+        <li>
+            <p class="info">Services</p>
+            <ul>
+                <li><a href="#">Drawing</a></li>
+                <li><a href="#">Web development</a></li>
+                <li><a href="#">Web &amp; Print Design</a></li>
+            </ul>
+        </li>
+        <li>
+            <p class="info">Contact us</p>
 
+            <ul>
+                <li><a href="#">Email</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Facebook</a></li>
+            </ul>
+        </li>
+    </ul>
+</footer>
 </body>
 </html>
