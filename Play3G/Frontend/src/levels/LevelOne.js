@@ -36,14 +36,16 @@ function dragProduct(){
     $('#Desk').droppable({
         scope:"desk",
         over: function(event, ui) {
+            $(ui.draggable).addClass(""+$(ui.draggable).attr("id")+"-desk");
             $(ui.draggable).draggable("destroy");
             $(ui.draggable).droppable({
                 scope:"product",
                 over: function(event, ui) {
                     var curr = this;
                     function addSmallIcon(pr) {
-                        if($(curr).attr("id")===pr.id)
-                            $(curr).attr("src",pr.iconSmall);
+                        if($(curr).attr("id")===pr.id) {
+                            $(curr).attr("src", pr.iconSmall);
+                        }
                     }
                     Product_List.forEach(addSmallIcon);
 
