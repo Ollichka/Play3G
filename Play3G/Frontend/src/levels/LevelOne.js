@@ -66,6 +66,11 @@ function dragProduct(){
         revert:true,
         scope: "desk"
     });
+    $('#Cheese').draggable({
+        containment: $kitchen,
+        revert:true,
+        scope: "desk"
+    });
     $('#Knife').draggable({
         containment: $kitchen,
         revert:true,
