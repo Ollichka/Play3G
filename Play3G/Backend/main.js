@@ -18,6 +18,14 @@ function configureEndpoints(app) {
     app.get('/vocabulary.html', pages.vocabulary);
     app.get('/about.html', pages.about);
 
+    app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
+
+    // the callback after google has authenticated the user
+    app.get('/auth/google/callback',
+        passport.authenticate('google', {
+            successRedirect : 'back',
+            failureRedirect : '/'
+        }));
 
 
     //Якщо не підійшов жоден url, тоді повертаємо файли з папки www

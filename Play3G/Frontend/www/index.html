@@ -1,164 +1,136 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>Play 3G</title>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="//ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/jquery-ui.min.js"></script>
-    <link rel="stylesheet/less" type="text/css" href="assets/less/main.less">
-    <!--Own JavaScript -->
-    <!--<script type="text/javascript"  src="assets/js/main.js"> </script>-->
-    <!-- LESS JavaScript компілятор -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
-    <link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/sunny/jquery-ui.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    Как к доставать ваш Google+ профиль info и другие деятельности с помощью Google JS API
+    <link href="css/main.css" rel="stylesheet" type="text/css" />
 
-    <script type="text/javascript">
-        $(function () {
-            $('#Tomato').draggable({
-                scope: "desk"
-            });
-            $('#Mayonnaise').draggable({
-                scope: "desk"
-            });
-            $('#Cucumber').draggable({
-                scope: "desk"
-            });
-            $('#Knife').draggable({
-                scope: "desk"
-            });
-            $('#Plate').draggable({
-                scope: "desk"
-            });
-            $('#Bread').draggable({
-                scope: "desk"
-            });
-            $('#cat').droppable({
-                drop: function () {
-                    $('#cat').text("Оставлено")
-                },
-                tolerance: "fit"
-            });
-            $('#cat').droppable("option", "tolerance", "touch");
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">// <![CDATA[
+    google.load("jquery", "1.7.1");
 
-            $('.draggable').draggable();
+    // ]]></script>
+    <script type="text/javascript" src="js/jsrender.js"></script>
+    <!-- define template for our units -->
+    <script id="gplusTemplate" type="text/x-jsrender">// <![CDATA[
 
-            $('.droppable').droppable({
-                drop: function(event, ui) {
-                    ui.draggable.text("Оставлено")
-                },
-                activeClass: "active",
-                hoverClass: "hover",
-                tolerance: "fit"
+<div id="{{>id}}" class="gp">
+            <img src="{{:actor.image.url}}" />
+<div>
+
+   <a href="{{:actor.url}}" target="_blank">{{:actor.displayName}}</a><span>{{:published}}</span>
+   <a href="{{:url}}" target="_blank">{{:title}}</a>
+   {{:object.content}}
+ </div>
+</div>
+// ]]></script>
+
+    <img class="google" alt="google plus" src="google-plus.jpg" /></pre>
+    <center>
+        <button id="login" style="visibility: hidden;">Авторизация</button>
+        <div id="author"></div>
+        <div id="actList"></div>
+    </center>
+
+    <script type="text/javascript">// <![CDATA[
+    // Your client ID
+    var clientId = 'YOUR_CLIENT_ID_KEY';
+
+    // Your API key
+    var apiKey = 'YOUR_API_KEY';
+
+    // The authorization scope
+    var scopes = 'https://www.googleapis.com/auth/plus.me';
+
+    // onliad initialization
+    function onloadInitialization() {
+        // set our own api key
+        gapi.client.setApiKey(apiKey);
+
+        // and checkAuth in 1 ms
+        window.setTimeout(checkAuth, 1);
+    }
+
+    // check authorization
+    function checkAuth() {
+        gapi.auth.authorize({
+            client_id: clientId,
+            scope: scopes,
+            immediate: true
+        }, handleAuthResult);
+    }
+
+    // handle authorization result
+    function handleAuthResult(authResult) {
+        var authorizeButton = document.getElementById('login');
+        if (authResult && ! authResult.error) {
+            authorizeButton.style.visibility = 'hidden';
+            makeGoogleApiCalls();
+        } else {
+            authorizeButton.style.visibility = '';
+            authorizeButton.onclick = handleAuthClick;
+        }
+    }
+
+    // handle onclick event of Login button
+    function handleAuthClick(event) {
+        gapi.auth.authorize({
+            client_id: clientId,
+            scope: scopes,
+            immediate: false
+        }, handleAuthResult);
+
+        return false;
+    }
+
+    // make Google API calls: obtain logged-in member info and activity of friends
+    function makeGoogleApiCalls() {
+        gapi.client.load('plus', 'v1', function() {
+
+            // Request1: obtain logged-in member info
+            var request = gapi.client.plus.people.get({
+                'userId': 'me'
+            });
+            request.execute(function(aInfo) {
+
+                // prepare author info array for rendering
+                var authorInfo = [
+                    {
+                        'id': aInfo.id,
+                        'actor': {'image': {'url': aInfo.image.url}, 'url': aInfo.url, 'displayName': aInfo.displayName},
+                        'published': '',
+                        'url': aInfo.url,
+                        'title': 'My page at G+',
+                        'object': {'content': ''}
+                    }
+                ];
+                // and render it using 'gplusTemplate' template
+                $('#author').html(
+                        $('#gplusTemplate').render(authorInfo)
+                );
             });
 
-            $('#touchDrop').droppable("option", "tolerance", "touch");
+            // Request2: obtain friend's activity feed
+            var restRequest = gapi.client.request({
+                'path': '/plus/v1/activities',
+                'params': {'query': 'Google+', 'orderBy': 'best'}
+            });
+            restRequest.execute(function(activityInfo) {
+
+                // render activity items using 'gplusTemplate' template
+                $('#actList').html(
+                        $('#gplusTemplate').render(activityInfo.items)
+                );
+            });
         });
-    </script>
+    }
+
+    // ]]></script>
+    <script type="text/javascript" src="https://apis.google.com/js/client.js?onload=onloadInitialization"></script>
 </head>
 <body>
-<footer class="menu">
-    <ul class="list-inline">
-        <li class="footer-up"><a class="footer-up" href="\">Home</a></li>
-        <li class="footer-up"><a class="footer-up" href="profile.html">Profile</a></li>
-        <li class="footer-up"><a href="about.html">About</a></li>
-        <li class="footer-up"><a href="vocabulary.html">Vocabulary</a></li>
-    </ul>
-</footer>
-
-<span data-toggle="tooltip" data-placement="top" title="Knife"> <img id="Knife"
-                                                                     src="http://pngimg.com/upload/knife_PNG1512.png"></span>
-<!--<span id = "droppable" data-toggle="tooltip" data-placement="top" title="Desk"> <img id="Desk" src="assets/images/Manaita.png"></span>-->
-<div id="cat">
-    Оставь здесь
-</div>
-<div id="dropContainer">
-    <div id="fitDrop" class="droppable">
-        <span>Fit</span>
-    </div>
-    <div id="touchDrop" class="droppable">
-        <span>Touch</span>
-    </div>
-</div>
-<div class="draggable ui-widget ui-corner-all ui-state-error">
-    <span>Перетащи меня</span>
-</div>
-
-
-<!--<p>Проект Play3G створений в межах курсу JavaScript в Києво-Могилянській Академії.</p>-->
-<footer class="footer">
-    <ul>
-        <li>
-            <p class="info">Home</p>
-            <a class="logo" href="\">Play3G <i>&copy; 2016</i></a>
-        </li>
-        <li>
-            <p class="info">Services</p>
-            <ul>
-                <li><a href="#">Drawing</a></li>
-                <li><a href="#">Web development</a></li>
-                <li><a href="#">Web &amp; Print Design</a></li>
-            </ul>
-        </li>
-        <li>
-            <p class="info">Contact us</p>
-
-            <ul>
-                <li><a href="#">Email</a></li>
-                <li><a href="#">Twitter</a></li>
-                <li><a href="#">Facebook</a></li>
-            </ul>
-        </li>
-    </ul>
-</footer>
+<button id="login" style="visibility: hidden;">Авторизация</button></pre>
+<div id="author"></div>
+<div id="actList"></div>
 </body>
 </html>
-
-<!--<!DOCTYPE html>-->
-<!--<html>-->
-<!--<head>-->
-<!--<meta charset="utf-8">-->
-<!--<title>jQuery UI</title>-->
-<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
-<!--<script src="//ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/jquery-ui.min.js"></script>-->
-<!--<link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/sunny/jquery-ui.css">-->
-<!--<style type="text/css">-->
-<!--.draggable, .droppable {font-size: large; border: thin solid black; padding: 4px;-->
-<!--width: 100px; text-align: center; background-color: lightgray;}-->
-<!--.droppable {margin-bottom: 10px; margin-right: 5px; height: 60px; width: 120px}-->
-<!--#dropContainer {position: absolute; right: 5px;}-->
-<!--div span {position: relative; top: 25%}-->
-<!--.droppable.active {border: thick solid green}-->
-<!--.droppable.hover {background-color: lightgreen}-->
-<!--</style>-->
-<!--<script type="text/javascript">-->
-<!--$(function() {-->
-
-<!--$('.draggable').draggable();-->
-
-<!--$('.droppable').droppable({-->
-<!--drop: function(event, ui) {-->
-<!--ui.draggable.text("Оставлено")-->
-<!--},-->
-<!--activeClass: "active",-->
-<!--hoverClass: "hover",-->
-<!--tolerance: "fit"-->
-<!--});-->
-
-<!--$('#touchDrop').droppable("option", "tolerance", "touch");-->
-<!--});-->
-<!--</script>-->
-<!--</head>-->
-<!--<body>-->
-<!--<div id="dropContainer">-->
-<!--<div id="fitDrop" class="droppable">-->
-<!--<span>Fit</span>-->
-<!--</div>-->
-<!--<div id="touchDrop" class="droppable">-->
-<!--<span>Touch</span>-->
-<!--</div>-->
-<!--</div>-->
-<!--<div class="draggable ui-widget ui-corner-all ui-state-error">-->
-<!--<span>Перетащи меня</span>-->
-<!--</div>-->
-<!--</body>-->
-<!--</html>-->

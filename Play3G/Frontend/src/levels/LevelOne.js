@@ -37,25 +37,18 @@ function dragProduct(){
         scope:"desk",
         over: function(event, ui) {
             $(ui.draggable).draggable("destroy");
+            $(ui.draggable).droppable({
+                scope:"product",
+                over: function(event, ui) {
+                    var curr = this;
+                    function addSmallIcon(pr) {
+                        if($(curr).attr("id")===pr.id)
+                            $(curr).attr("src",pr.iconSmall);
+                    }
+                    Product_List.forEach(addSmallIcon);
 
-        }
-    });
-    $('#Tomato').droppable({
-        scope:"product",
-        over: function(event, ui) {
-            $(this).attr("src","assets/images/40186586.png");
-        }
-    });
-    $('#Bread').droppable({
-        scope:"product",
-        over: function(event, ui) {
-            $(this).attr("src",'http://parentingwithunderstanding.files.wordpress.com/2011/11/slice-of-bread.png');
-        }
-    });
-    $('#Cucumber').droppable({
-        scope:"product",
-        over: function(event, ui) {
-            $(this).attr("src","assets/images/cucumber-spas-in-panama-city-panama.png");
+                }
+            });
         }
     });
 

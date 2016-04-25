@@ -11,3 +11,4 @@ exports.getEquipmentList = function(req, res) {
     console.log("api");
     res.send(Equipment_List);
 } ;
+

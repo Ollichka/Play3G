@@ -1,7 +1,4 @@
 
-/**
- * Created by diana on 12.01.16.
- */
 
 var product_info = [
     {
