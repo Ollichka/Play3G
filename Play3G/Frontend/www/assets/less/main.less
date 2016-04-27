@@ -28,8 +28,6 @@
   margin:0 auto;
 }
 
-.droppable.active {border: medium solid green;background:url("../images/BackgrMain_1600_1200.jpg");}
-.droppable.hover {background-color: lightgreen}
 
 .info{
   width: 230px;
@@ -119,7 +117,7 @@ body{
   position: absolute;
   height: 50px;
   width: 60px;
-  z-index: 4;
+  z-index: 2;
   right: 80px; bottom:180px;
 }
 
@@ -297,7 +295,36 @@ body{
   padding-bottom: 5px;
 }
 
-.Cucumber-desk{ right: 50px; bottom:50px;}
-.Tomato-desk{ right: 50px; bottom:80px;}
-.Bread-desk{ right: 80px; bottom:90px;}
-.Mayonnaise-desk{ right: 30px; bottom:120px;}
+#Cucumber-desk{ right: 50px; bottom:50px;
+  position:absolute;
+  height:15px;
+  z-index:4;
+}
+
+#Tomato-desk{
+  right: 50px; bottom:80px;
+  position: absolute;
+  height: 40px;
+  z-index:5;
+}
+
+#Bread-desk{
+  height: 70px;
+  position: absolute;
+  z-index: 4;
+  right: 80px; bottom:90px;
+}
+
+#Mayonnaise-desk{
+  position:absolute;
+  height: 50px;
+  z-index:4;
+  right: 30px; bottom:120px;
+}
+
+#Cheese-desk{
+  position:absolute;
+  height: 50px;
+  z-index:4;
+  right: 60px; bottom:120px;
+}

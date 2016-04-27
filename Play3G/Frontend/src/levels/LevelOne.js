@@ -5,6 +5,8 @@ var Templates = require('../Templates');
 //HTML едемент куди будуть додаватися піци
 var $kitchen = $(".kitchen-one");
 
+var number = 1;
+
 function showProductOnPageList(list) {
 
     function showOneProd(prod) {
@@ -36,14 +38,19 @@ function dragProduct(){
     $('#Desk').droppable({
         scope:"desk",
         over: function(event, ui) {
-            $(ui.draggable).addClass(""+$(ui.draggable).attr("id")+"-desk");
+            $(ui.draggable).attr("id",$(ui.draggable).attr("id")+"-desk");
             $(ui.draggable).draggable("destroy");
             $(ui.draggable).droppable({
                 scope:"product",
                 over: function(event, ui) {
                     var curr = this;
                     function addSmallIcon(pr) {
-                        if($(curr).attr("id")===pr.id) {
+                        if($(curr).attr("id")===pr.id+"-desk") {
+                            $(curr).draggable({
+                                containment: $kitchen,
+                                revert:true,
+                                scope: "plate"
+                            });
                             $(curr).attr("src", pr.iconSmall);
                         }
                     }
@@ -53,8 +60,24 @@ function dragProduct(){
             });
         }
     });
+    $('#Plate').droppable({
+         scope:"plate",
+         over: function(event, ui) {
+             function stages(pr) {
+                 if(number===pr.queue) {
+
+                 }
+             }
+             Product_List.forEach(stages);
+         }
+    });
 
     $('#Tomato').draggable({
+        containment: $kitchen,
+        revert:true,
+        scope: "desk"
+    });
+    $('#Cheese').draggable({
         containment: $kitchen,
         revert:true,
         scope: "desk"
@@ -83,6 +106,7 @@ function dragProduct(){
         revert:true,
         scope: "desk"
     });
+
 }
 
 
