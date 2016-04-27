@@ -40,11 +40,11 @@ var product_list = [
     },
     {
         id:'Sandwich',
-        icon1:'',
-        icon2:'',
-        icon3:'',
-        icon4:'',
-        icon5:'',
+        icon1:'assets/images/STAGE-0.png',
+        icon2:'assets/images/STAGE-1.png',
+        icon3:'assets/images/STAGE-2.png',
+        icon4:'assets/images/STAGE-3.png',
+        icon5:'assets/images/STAGE-4.png',
         title: "Sandwich"
     }
 ];

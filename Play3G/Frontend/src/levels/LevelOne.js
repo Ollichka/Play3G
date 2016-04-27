@@ -9,6 +9,7 @@ var number = 1;
 var step=1;
 var ondesk=0;
 var cut=0;
+var sand;
 
 
 function showProductOnPageList(list) {
@@ -17,7 +18,7 @@ function showProductOnPageList(list) {
         console.log("products");
         var html_code = Templates.Product_OneItem({prod: prod});
         var $node = $(html_code);
-        if(prod.id==="Sandwich") $(prod).hide();
+        if(prod.id==="Sandwich") {sand=prod; }
         $kitchen.append($node);
 
     }
@@ -29,7 +30,7 @@ function showProductOnPageList(list) {
 function readyTask() {
     console.log('#demo-step'+step+"");
     $('#demo-step'+step+"").addClass("cross");
-    if(step==7) endLevel();
+    if(step==7) //endLevel();
     step++;
 }
 
@@ -85,8 +86,15 @@ function dragProduct(){
                  if ($(ui.draggable).attr("id") === pr.id + "-desk"||$(ui.draggable).attr("id") ==="Mayonnaise" ) {
                      if(number==pr.queue) {
                          console.log(number);
-                         number++;
                          $(ui.draggable).hide("slow");
+                         $("#Sandwich").attr("src",function(){
+                             if(number==1) return sand.icon1;
+                             else if(number==2) return sand.icon2;
+                             else if(number==3) return sand.icon3;
+                             else if(number==4) return sand.icon4;
+                             else return sand.icon4;
+                         });
+                         number++;
                          readyTask();
                      }
                  }
