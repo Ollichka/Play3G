@@ -6,7 +6,6 @@ var Templates = require('../Templates');
 var $kitchen = $(".kitchen-one");
 
 var number = 1;
-var step=1;
 var ondesk=0;
 var cut=0;
 var sand;
@@ -15,7 +14,6 @@ var sand;
 function showProductOnPageList(list) {
 
     function showOneProd(prod) {
-        console.log("products");
         var html_code = Templates.Product_OneItem({prod: prod});
         var $node = $(html_code);
         if(prod.id==="Sandwich") {sand=prod; }
@@ -27,19 +25,15 @@ function showProductOnPageList(list) {
 }
 
 
-function readyTask() {
-    console.log(step);
-    console.log('#demo-step'+step+"");
-    $('#demo-step'+step+"").css('text-decoration', 'line-through');
-    if(step==7) endLevel();
-    step++;
+function readyTask(num) {
+    $('#demo-step'+num+"").css('text-decoration', 'line-through');
+    if(num==7) endLevel();
 }
 
 
 function showEquipmentOnPageList(list) {
 
     function showOneEquip(eq) {
-        console.log("equipment");
         var html_code = Templates.Equipment_OneItem({eq: eq});
 
         var $node = $(html_code);
@@ -54,12 +48,20 @@ function dragProduct(){
     $('#Desk').droppable({
         scope:"desk",
         over: function(event, ui) {
-            $(ui.draggable).draggable("destroy");
-            $(ui.draggable).attr("id",$(ui.draggable).attr("id")+"-desk");
-            ondesk++;
-            if(ondesk===4){
-                readyTask();
+
+            console.log($(ui.draggable).draggable( "option", "revert"));
+            if($(ui.draggable).draggable( "option", "revert")){
+                $(ui.draggable).attr("id",$(ui.draggable).attr("id")+"-desk");
+                console.log($(ui.draggable).attr("id"));
+                ondesk++;
+                if(ondesk===4){
+                    readyTask(1);
+                }
             }
+            $(ui.draggable).draggable({
+                containment: $('#Desk'),
+                revert:false
+            });
             $(ui.draggable).droppable({
                 scope:"product",
                 over: function(event, ui) {
@@ -73,7 +75,7 @@ function dragProduct(){
                                 scope: "plate"
                             });
                             $(curr).attr("src", pr.iconSmall);
-                            if(cut===4) readyTask();
+                            if(cut===4) readyTask(2);
                         }
                     }
                     Product_List.forEach(addSmallIcon);
@@ -86,9 +88,8 @@ function dragProduct(){
          scope:"plate",
          over: function(event, ui) {
              function stages(pr) {
-                 if ($(ui.draggable).attr("id") === pr.id + "-desk"||$(ui.draggable).attr("id") ==="Mayonnaise" ) {
+                 if ($(ui.draggable).attr("id") === pr.id + "-desk"||$(ui.draggable).attr("id") ===pr.id  ) {
                      if(number==pr.queue) {
-                         console.log(number);
                          $(ui.draggable).hide("slow");
                          $("#Sandwich").attr("src",function(){
                              if(number==1) return sand.icon1;
@@ -98,7 +99,7 @@ function dragProduct(){
                              else return sand.icon5;
                          });
                          number++;
-                         readyTask();
+                         readyTask(number+1);
                      }
                  }
              }
@@ -120,14 +121,10 @@ function dragProduct(){
     });
     $('#Mayonnaise').draggable({
         containment: $kitchen,
+        revert:true,
         scope: "plate"
     });
     $('#Cucumber').draggable({
-        containment: $kitchen,
-        revert:true,
-        scope: "desk"
-    });
-    $('#Cheese').draggable({
         containment: $kitchen,
         revert:true,
         scope: "desk"
