@@ -14,7 +14,7 @@ var equipment_list = [
     },
     {
         id:'Knife',
-        icon:'http://pngimg.com/upload/knife_PNG1512.png',
+        icon:'assets/images/Knife.png',
         title: "Knife"
 
     },
