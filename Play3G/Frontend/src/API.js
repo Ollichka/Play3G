@@ -31,12 +31,10 @@ function backendPost(url, data, callback) {
 }
 
 exports.getProductList = function(callback) {
-    console.log("Api");
     backendGet("/api/get-product-list/", callback);
 };
 
 exports.getEquipmentList = function(callback) {
-    console.log("Api");
     backendGet("/api/get-equipment-list/", callback);
 };
 
