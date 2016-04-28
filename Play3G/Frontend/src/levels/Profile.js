@@ -8,4 +8,11 @@ function saveProgress(lev){
     console.log(Storage.get('level'))
 }
 
+function update(){
+    var lev = Storage.get('level');
+    if(lev) {
+        level = lev;
+    }
+}
+
 exports.saveProgress = saveProgress;
