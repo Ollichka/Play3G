@@ -33,7 +33,7 @@ var product_list = [
     },
     {
         id:'Bread',
-        iconFull:'http://1.bp.blogspot.com/-XPoRVLvx4D8/Tq71GrCyEwI/AAAAAAAABNo/YlnF5fFvtbI/s320/bread.png',
+        iconFull:'assets/images/bread.png',
         iconSmall:'http://parentingwithunderstanding.files.wordpress.com/2011/11/slice-of-bread.png',
         title: "Bread",
         queue:"1"

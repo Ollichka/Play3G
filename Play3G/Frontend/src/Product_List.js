@@ -33,14 +33,14 @@ var product_list = [
     },
     {
         id:'Bread',
-        iconFull:'http://1.bp.blogspot.com/-XPoRVLvx4D8/Tq71GrCyEwI/AAAAAAAABNo/YlnF5fFvtbI/s320/bread.png',
-        iconSmall:'http://parentingwithunderstanding.files.wordpress.com/2011/11/slice-of-bread.png',
+        iconFull:'assets/images/bread.png',
+        iconSmall:'assets/images/bread_piece.png',
         title: "Bread",
         queue:"1"
     },
     {
         id:'Sandwich',
-        icon1:'assets/images/STAGE-0.png',
+        icon1:'assets/images/bread_piece.png',
         icon2:'assets/images/STAGE-1.png',
         icon3:'assets/images/STAGE-2.png',
         icon4:'assets/images/STAGE-3.png',
