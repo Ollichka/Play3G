@@ -1,6 +1,7 @@
 var Product_List = require('../Product_List');
 var Equipment_List = require('../Equipment_List');
 var Templates = require('../Templates');
+var Profile = require('./Profile');
 
 //HTML едемент куди будуть додаватися піци
 var $kitchen = $(".kitchen-one");
@@ -144,6 +145,7 @@ function dragProduct(){
 
 function endLevel(){
     $('#congratulation').show();
+    Profile.saveProgress({level:1,theme:"kitchen"})
 //    alert("congratulation you finish demo level!");
 }
 
