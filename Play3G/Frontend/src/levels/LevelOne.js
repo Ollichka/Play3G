@@ -92,7 +92,7 @@ function dragProduct(){
                              else if(number==2) return sand.icon2;
                              else if(number==3) return sand.icon3;
                              else if(number==4) return sand.icon4;
-                             else return sand.icon4;
+                             else return sand.icon5;
                          });
                          number++;
                          readyTask();
