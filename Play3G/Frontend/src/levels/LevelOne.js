@@ -28,9 +28,10 @@ function showProductOnPageList(list) {
 
 
 function readyTask() {
+    console.log(step);
     console.log('#demo-step'+step+"");
-    $('#demo-step'+step+"").addClass("cross");
-    if(step==7) //endLevel();
+    $('#demo-step'+step+"").css('text-decoration', 'line-through');
+    if(step==7) endLevel();
     step++;
 }
 
@@ -56,7 +57,9 @@ function dragProduct(){
             $(ui.draggable).draggable("destroy");
             $(ui.draggable).attr("id",$(ui.draggable).attr("id")+"-desk");
             ondesk++;
-            if(ondesk===4) readyTask();
+            if(ondesk===4){
+                readyTask();
+            }
             $(ui.draggable).droppable({
                 scope:"product",
                 over: function(event, ui) {
@@ -143,7 +146,8 @@ function dragProduct(){
 }
 
 function endLevel(){
-        alert("congratulation you finish it!");
+    $('#congratulation').show();
+//    alert("congratulation you finish demo level!");
 }
 
 
